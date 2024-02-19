@@ -7,7 +7,6 @@ class Solution:
         stack = []
 
         for i, t in enumerate(temperatures):
-            print(i, t)
             while stack and t > stack[-1][0]:
                 val = stack.pop(-1)
                 days[val[1]] = i - val[1]
