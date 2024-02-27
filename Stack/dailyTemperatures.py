@@ -6,12 +6,14 @@ class Solution:
         days = [0] * len(temperatures)
         stack = []
 
-        for i, t in enumerate(temperatures):
-            while stack and t > stack[-1][0]:
-                val = stack.pop(-1)
-                days[val[1]] = i - val[1]
-            stack.append((t, i))
+        for indx, temp in enumerate(temperatures):
+            print(stack)
+            while stack and stack[-1][1] < temp:
+                removed_temp = stack.pop(-1)
+                days[removed_temp[0]] = indx - removed_temp[0]
+            stack.append((indx, temp))
         return days
 
 
 print(Solution().dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]))
+# [ 1 , 1, 4 , 2 , 1 , 1 , 0 , 0]
