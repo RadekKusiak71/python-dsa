@@ -7,7 +7,6 @@ class Solution:
         stack = []
 
         for indx, temp in enumerate(temperatures):
-            print(stack)
             while stack and stack[-1][1] < temp:
                 removed_temp = stack.pop(-1)
                 days[removed_temp[0]] = indx - removed_temp[0]
@@ -16,4 +15,3 @@ class Solution:
 
 
 print(Solution().dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]))
-# [ 1 , 1, 4 , 2 , 1 , 1 , 0 , 0]
